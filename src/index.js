@@ -2,9 +2,10 @@ const path = require('path')
 const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
-const { generateMessage } = require('./utils/messages')
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
-const { addUserToUser, removeUserInChat, getUserInChat, getUsersInChat } = require('./utils/iusers')
+
+const { generateMessage } = require('./helpers/messages')
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./helpers/users')
+const { addUserToUser, removeUserInChat, getUserInChat, getUsersInChat } = require('./helpers/iusers')
 
 const app = express()
 const server = http.createServer(app)

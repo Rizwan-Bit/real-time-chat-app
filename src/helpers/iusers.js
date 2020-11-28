@@ -2,30 +2,25 @@ const iUsers = []
 
 const addUserToUser = ({id, c_user, secret}) => {
 
-    // Validate data
     if(!c_user || !secret){
         return {
             error: 'Both names are required!'
         }
     }
 
-    // Clean Data
     c_user = c_user.trim().toLowerCase()
     secret = secret.trim().toLowerCase()
 
-    // Check for existing user
     const existingUser = iUsers.find((user) => {
         return user.secret === secret && user.c_user === c_user
     })
 
-    // Validate username
     if (existingUser) {
         return {
             error: 'Username is already taken, Try another!'
         }
     }
 
-    // store user
     const iuser = {id, c_user, secret}
     iUsers.push(iuser)
     return { iuser }
